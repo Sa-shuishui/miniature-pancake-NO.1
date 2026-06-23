@@ -1,0 +1,67 @@
+<view class="page apply-page {{themeClass}}">
+  <back-button />
+  <view class="top-bar">
+    <text>共同花申请</text>
+    <text class="mini-chip">写清楚更好批</text>
+  </view>
+
+  <view class="apply-hero soft-panel">
+    <image class="apply-hero-img" src="{{heroImage}}" mode="aspectFit" />
+    <view>
+      <view class="apply-title">想买什么，温柔说清楚</view>
+      <view class="apply-copy">用途、金额、必要性和链接都放在这里，对方会更容易理解你的想法。</view>
+    </view>
+  </view>
+
+  <view class="form-surface soft-panel" wx:if="{{formState}}">
+    <view class="field">
+      <view class="label">资金用途</view>
+      <input value="{{formState.form.title}}" data-field="title" bindinput="onFieldInput" placeholder="例如：购买咖啡机" />
+      <view wx:if="{{formState.fieldErrors.title}}" class="error">{{formState.fieldErrors.title}}</view>
+    </view>
+
+    <view class="split-fields">
+      <view class="field">
+        <view class="label">金额</view>
+        <input type="digit" value="{{formState.form.amount}}" data-field="amount" bindinput="onFieldInput" placeholder="1299" />
+        <view wx:if="{{formState.fieldErrors.amount}}" class="error">{{formState.fieldErrors.amount}}</view>
+      </view>
+
+      <view class="field">
+        <view class="label">分类</view>
+        <picker range="{{formState.categoryOptions}}" bindchange="onCategoryChange">
+          <view class="picker-text">{{formState.form.category || '选择分类'}}</view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="field">
+      <view class="label">必要性说明</view>
+      <textarea value="{{formState.form.reason}}" data-field="reason" bindinput="onFieldInput" placeholder="为什么现在想买？它会怎样改善你们的共同生活？" />
+      <view wx:if="{{formState.fieldErrors.reason}}" class="error">{{formState.fieldErrors.reason}}</view>
+    </view>
+
+    <view class="field">
+      <view class="label">产品照片</view>
+      <view class="image-row">
+        <view wx:for="{{formState.form.images}}" wx:key="*this" class="image-wrap">
+          <image class="thumb" src="{{item}}" mode="aspectFill" />
+          <view class="remove-image" data-path="{{item}}" bindtap="removeImage">移除</view>
+        </view>
+        <view wx:if="{{formState.form.images.length < 3}}" class="add-image" bindtap="chooseImage">
+          <view>添加照片</view>
+          <text>最多 3 张</text>
+        </view>
+      </view>
+      <view wx:if="{{formState.fieldErrors.images}}" class="error">{{formState.fieldErrors.images}}</view>
+    </view>
+
+    <view class="field">
+      <view class="label">产品链接</view>
+      <input value="{{formState.form.productLink}}" data-field="productLink" bindinput="onFieldInput" placeholder="粘贴商品链接、淘口令或店铺口令" />
+      <view wx:if="{{formState.fieldErrors.productLink}}" class="error">{{formState.fieldErrors.productLink}}</view>
+    </view>
+  </view>
+
+  <button class="primary-button" loading="{{submitting}}" disabled="{{!formState.canSubmit || submitting}}" bindtap="submit">提交给对方</button>
+</view>

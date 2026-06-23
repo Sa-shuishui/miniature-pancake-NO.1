@@ -1,0 +1,19 @@
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Node.js
+node_modules/
+
+# Local design/source references not needed by the mini program runtime
+界面图片/
+_backup_old_miniprogram_*/
+小程序图标.png

@@ -1,0 +1,139 @@
+@import "../shared/theme.wxss";
+
+.apply-hero {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  margin-top: 30rpx;
+  padding: 22rpx 24rpx;
+}
+
+.apply-hero-img {
+  width: 190rpx;
+  height: 150rpx;
+  flex: 0 0 190rpx;
+}
+
+.apply-title {
+  color: #543b34;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.apply-copy {
+  margin-top: 10rpx;
+  color: #8f7066;
+  font-size: 25rpx;
+  line-height: 1.45;
+}
+
+.form-surface {
+  margin-top: 24rpx;
+  padding: 28rpx 26rpx;
+}
+
+.field {
+  margin-bottom: 28rpx;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.split-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+}
+
+.label {
+  margin-bottom: 12rpx;
+  color: #60473e;
+  font-size: 27rpx;
+  font-weight: 900;
+}
+
+input,
+textarea,
+.picker-text {
+  width: 100%;
+  box-sizing: border-box;
+  border: 3rpx solid rgba(229, 193, 174, 0.68);
+  border-radius: 24rpx;
+  background: #fffaf4;
+  color: #4f3932;
+  font-size: 28rpx;
+}
+
+input,
+.picker-text {
+  height: 86rpx;
+  padding: 0 24rpx;
+  line-height: 86rpx;
+}
+
+textarea {
+  min-height: 188rpx;
+  padding: 22rpx 24rpx;
+  line-height: 1.5;
+}
+
+.image-row {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+}
+
+.image-wrap,
+.add-image {
+  width: 188rpx;
+  height: 188rpx;
+  border-radius: 28rpx;
+}
+
+.image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+}
+
+.remove-image {
+  position: absolute;
+  right: 10rpx;
+  bottom: 10rpx;
+  padding: 6rpx 12rpx;
+  border-radius: 999rpx;
+  color: #ffffff;
+  background: rgba(83, 58, 51, 0.72);
+  font-size: 20rpx;
+}
+
+.add-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3rpx dashed var(--theme-line);
+  background: var(--theme-tint);
+  color: var(--theme-deep);
+}
+
+.add-image view {
+  font-size: 27rpx;
+  font-weight: 900;
+}
+
+.add-image text {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+}
+
+.error {
+  margin-top: 10rpx;
+  color: #d15a5a;
+  font-size: 23rpx;
+}

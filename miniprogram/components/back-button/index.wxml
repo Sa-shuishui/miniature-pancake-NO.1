@@ -1,0 +1,4 @@
+<view class="back-button-wrap" bindtap="goBack">
+  <text class="back-arrow">‹</text>
+  <text class="back-text">返回</text>
+</view>

@@ -1,0 +1,132 @@
+@import "../shared/theme.wxss";
+
+.detail-wrap {
+  margin-top: 30rpx;
+}
+
+.detail-top {
+  padding: 32rpx 28rpx;
+  text-align: center;
+}
+
+.detail-icon {
+  display: block;
+  width: 150rpx;
+  height: 150rpx;
+  margin: 0 auto 14rpx;
+}
+
+.status-chip {
+  display: inline-flex;
+  height: 52rpx;
+  padding: 0 22rpx;
+  border-radius: 999rpx;
+  color: #ffffff;
+  background: var(--theme-strong);
+  font-size: 24rpx;
+  font-weight: 900;
+  line-height: 52rpx;
+}
+
+.detail-title {
+  margin-top: 22rpx;
+  color: #543b34;
+  font-size: 44rpx;
+  font-weight: 900;
+}
+
+.detail-amount {
+  margin-top: 14rpx;
+  color: var(--theme-deep);
+  font-size: 54rpx;
+  font-weight: 900;
+}
+
+.detail-meta {
+  margin-top: 12rpx;
+  color: #9a7b70;
+  font-size: 24rpx;
+}
+
+.detail-section {
+  margin-top: 22rpx;
+  padding: 26rpx;
+}
+
+.label {
+  color: #60473e;
+  font-size: 28rpx;
+  font-weight: 900;
+}
+
+.body-text,
+.link-text {
+  margin-top: 14rpx;
+  color: #6d5148;
+  font-size: 28rpx;
+  line-height: 1.65;
+}
+
+.link-text {
+  color: var(--theme-deep);
+  word-break: break-all;
+}
+
+textarea {
+  width: 100%;
+  min-height: 154rpx;
+  box-sizing: border-box;
+  margin-top: 16rpx;
+  padding: 22rpx 24rpx;
+  border: 3rpx solid rgba(229, 193, 174, 0.68);
+  border-radius: 24rpx;
+  background: #fffaf4;
+  color: #4f3932;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+.saved-comment {
+  padding-top: 18rpx;
+  border-top: 2rpx dashed rgba(214, 178, 159, 0.6);
+}
+
+.image-row {
+  display: flex;
+  gap: 16rpx;
+  flex-wrap: wrap;
+  margin-top: 18rpx;
+}
+
+.thumb {
+  width: 188rpx;
+  height: 188rpx;
+  border-radius: 28rpx;
+}
+
+.decision-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rpx;
+  margin-top: 28rpx;
+}
+
+.reject-button,
+.approve-button {
+  height: 92rpx;
+  border-radius: 999rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 900;
+  line-height: 92rpx;
+}
+
+.reject-button {
+  background: var(--reject);
+  box-shadow: 0 12rpx 0 #c66860;
+}
+
+.approve-button {
+  background: var(--approve);
+  box-shadow: 0 12rpx 0 #659b61;
+}

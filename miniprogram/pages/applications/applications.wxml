@@ -1,0 +1,86 @@
+<view class="page applications-page {{themeClass}}">
+  <back-button />
+  <view class="top-bar">
+    <text>共同花清单</text>
+    <text class="mini-chip">一起记账前先商量</text>
+  </view>
+
+  <view class="list-hero soft-panel" wx:if="{{viewModel}}">
+    <view>
+      <view class="list-title">{{listTitle}}</view>
+      <view class="list-copy">{{listCopyPrefix}} {{viewModel.summary.pending}} 笔待审批，共 {{viewModel.summary.total}} 笔共同花记录。</view>
+    </view>
+    <image class="list-hero-img" src="{{heroImage}}" mode="aspectFit" />
+  </view>
+
+  <view id="ledgerPanel" wx:if="{{isApprover && accounting}}" class="ledger-panel soft-panel {{shouldFocusLedger ? 'ledger-focus' : ''}}">
+    <view class="ledger-head">
+      <view>
+        <view class="ledger-title">共同资金记账</view>
+        <view class="ledger-copy">简单记下已经花出去的钱和用途</view>
+      </view>
+      <view class="ledger-total">
+        <text>{{accounting.summary.totalAmountText}}</text>
+        <view>{{accounting.summary.count}} 笔</view>
+      </view>
+    </view>
+
+    <view class="ledger-form">
+      <view class="ledger-field">
+        <view class="label">用途</view>
+        <input value="{{accounting.formState.form.purpose}}" data-field="purpose" bindinput="onAccountingInput" placeholder="例如：买菜、日用品、聚餐" />
+        <view wx:if="{{accounting.formState.errors.purpose}}" class="error">{{accounting.formState.errors.purpose}}</view>
+      </view>
+      <view class="ledger-field">
+        <view class="label">金额</view>
+        <input type="digit" value="{{accounting.formState.form.amount}}" data-field="amount" bindinput="onAccountingInput" placeholder="128" />
+        <view wx:if="{{accounting.formState.errors.amount}}" class="error">{{accounting.formState.errors.amount}}</view>
+      </view>
+      <view class="ledger-field ledger-note">
+        <view class="label">备注</view>
+        <input value="{{accounting.formState.form.note}}" data-field="note" bindinput="onAccountingInput" placeholder="可选，简单说明一下" />
+      </view>
+      <button class="ledger-button" loading="{{accountingSubmitting}}" disabled="{{!accounting.formState.canSubmit || accountingSubmitting}}" bindtap="submitAccounting">记一笔</button>
+    </view>
+
+    <view class="ledger-list">
+      <view wx:for="{{accounting.records}}" wx:key="id" class="ledger-row">
+        <view>
+          <view class="ledger-purpose">{{item.purpose}}</view>
+          <view class="ledger-meta">{{item.createdAt}} · {{item.note || '无备注'}}</view>
+        </view>
+        <view class="ledger-amount">{{item.amountText}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{viewModel}}" class="filter-row">
+    <view
+      wx:for="{{viewModel.filters}}"
+      wx:key="value"
+      class="filter {{item.active ? 'active' : ''}}"
+      data-status="{{item.value}}"
+      bindtap="changeFilter"
+    >{{item.label}}</view>
+  </view>
+
+  <view wx:if="{{viewModel}}" class="list-surface soft-panel">
+    <view wx:if="{{viewModel.empty}}" class="empty">还没有这一类共同花</view>
+    <view
+      wx:for="{{viewModel.items}}"
+      wx:key="id"
+      class="app-row"
+      data-id="{{item.id}}"
+      bindtap="openDetail"
+    >
+      <view>
+        <view class="row-title">{{item.title}}</view>
+        <view class="row-meta">{{item.category || '未分类'}} · {{item.applicantName}}</view>
+      </view>
+      <view class="row-side">
+        <view class="amount">{{item.amountText}}</view>
+        <view class="status">{{item.statusLabel}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+@import "../../shared/theme.wxss";
+
+.gender-page {
+  padding-bottom: 0;
+}
+
+.poster-hero {
+  display: block;
+  width: calc(100% + 56rpx);
+  height: 760rpx;
+  margin: 18rpx -28rpx -10rpx;
+  border-radius: 0 0 34rpx 34rpx;
+}
+
+.gender-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28rpx;
+  margin-top: 18rpx;
+}
+
+.gender-card {
+  position: relative;
+  box-sizing: border-box;
+  height: 340rpx;
+  padding: 0;
+  border: 4rpx solid transparent;
+  border-radius: 34rpx;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 18rpx 34rpx rgba(117, 81, 70, 0.08);
+}
+
+.gender-card.active {
+  transform: translateY(-6rpx);
+  box-shadow: 0 22rpx 42rpx rgba(117, 81, 70, 0.14);
+}
+
+.gender-card.active::after {
+  content: "";
+  position: absolute;
+  right: 20rpx;
+  top: 18rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 999rpx;
+  background: var(--theme-strong);
+  box-shadow: inset 0 0 0 8rpx #ffffff;
+}
+
+.male-card {
+  border-color: #86bce8;
+  background: linear-gradient(180deg, #f4fbff 0%, #e8f6ff 100%);
+}
+
+.female-card {
+  border-color: #f2a9b8;
+  background: linear-gradient(180deg, #fff9fb 0%, #fff0f5 100%);
+}
+
+.gender-card-img {
+  width: 100%;
+  height: 100%;
+}
+
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16rpx;
+  margin-top: 34rpx;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-icon {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.trust-title {
+  margin-top: 8rpx;
+  color: #6a4d43;
+  font-size: 25rpx;
+  font-weight: 900;
+}
+
+.trust-copy {
+  margin-top: 4rpx;
+  color: #9a7b70;
+  font-size: 20rpx;
+}
+
+.bottom-meadow {
+  display: block;
+  width: calc(100% + 56rpx);
+  margin: 12rpx -28rpx 0;
+}

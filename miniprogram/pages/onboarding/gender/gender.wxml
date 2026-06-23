@@ -1,0 +1,32 @@
+<view class="page onboarding-page gender-page">
+  <view class="top-bar">
+    <text>共同花</text>
+    <text class="mini-chip">情侣家庭专属</text>
+  </view>
+
+  <image class="poster-hero" src="/assets/illustrations/poster-hero.jpg" mode="aspectFill" />
+
+  <view class="gender-grid">
+    <view
+      wx:for="{{state.options}}"
+      wx:key="value"
+      class="gender-card {{item.value === 'male' ? 'male-card' : 'female-card'}} {{item.active ? 'active' : ''}}"
+      data-gender="{{item.value}}"
+      bindtap="selectGender"
+    >
+      <image wx:if="{{item.value === 'male'}}" class="gender-card-img" src="/assets/illustrations/theme-male-card.jpg" mode="aspectFill" />
+      <image wx:else class="gender-card-img" src="/assets/illustrations/theme-female-card.jpg" mode="aspectFill" />
+    </view>
+  </view>
+
+  <view class="trust-row">
+    <view wx:for="{{trustIcons}}" wx:key="title" class="trust-item">
+      <image class="trust-icon" src="{{item.image}}" mode="aspectFit" />
+      <view class="trust-title">{{item.title}}</view>
+      <view class="trust-copy">{{item.copy}}</view>
+    </view>
+  </view>
+
+  <button class="primary-button" disabled="{{!state.canContinue}}" bindtap="continue">开始共同花</button>
+  <image class="bottom-meadow" src="/assets/illustrations/poster-meadow.jpg" mode="widthFix" />
+</view>

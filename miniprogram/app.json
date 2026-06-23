@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/onboarding/gender/gender",
+    "pages/onboarding/role/role",
+    "pages/home/home",
+    "pages/apply/apply",
+    "pages/applications/applications",
+    "pages/detail/detail",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "家庭审批",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f8fa"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7a7f87",
+    "selectedColor": "#1f8f5f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/apply/apply",
+        "text": "申请"
+      },
+      {
+        "pagePath": "pages/applications/applications",
+        "text": "列表"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  }
+}

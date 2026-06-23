@@ -1,0 +1,12 @@
+<view class="custom-tabbar {{themeClass}}">
+  <view
+    wx:for="{{items}}"
+    wx:key="key"
+    class="tab-item {{selectedKey === item.key ? 'active' : ''}}"
+    data-key="{{item.key}}"
+    data-path="{{item.path}}"
+    bindtap="switchTab"
+  >
+    <text>{{item.text}}</text>
+  </view>
+</view>

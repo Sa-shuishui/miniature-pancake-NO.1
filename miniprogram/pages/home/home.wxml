@@ -1,0 +1,61 @@
+<view class="page home-page {{themeClass}}">
+  <view class="top-bar">
+    <text>共同花</text>
+    <text class="mini-chip">{{pendingCount}} 笔待回应</text>
+  </view>
+
+  <view class="home-hero soft-panel {{isApprover ? 'approver-hero' : 'applicant-hero'}}">
+    <view class="hero-text">
+      <view class="home-title">{{heroTitle}}</view>
+      <view class="home-copy">{{heroCopy}}</view>
+      <view class="hero-actions">
+        <button class="home-main-button" bindtap="goApply">{{primaryActionText}}</button>
+        <button class="ghost-button" bindtap="goSecondaryAction">{{secondaryActionText}}</button>
+      </view>
+    </view>
+    <image class="home-hero-img" src="{{heroImage}}" mode="aspectFit" />
+  </view>
+
+  <view wx:if="{{summary}}" class="summary-row">
+    <view class="summary-item soft-panel">
+      <text>{{summary.total}}</text>
+      <view>全部</view>
+    </view>
+    <view class="summary-item soft-panel">
+      <text>{{summary.pending}}</text>
+      <view>待审批</view>
+    </view>
+    <view class="summary-item soft-panel">
+      <text>{{summary.approved}}</text>
+      <view>已通过</view>
+    </view>
+  </view>
+
+  <view class="section-line">
+    <view>
+      <view class="section-name">最近的共同花</view>
+      <view class="section-note">每一笔都留下一句好好商量</view>
+    </view>
+    <text bindtap="goApplications">全部</text>
+  </view>
+
+  <view class="list-surface soft-panel">
+    <view wx:if="{{!recentApplications.length}}" class="empty">还没有共同花申请</view>
+    <view
+      wx:for="{{recentApplications}}"
+      wx:key="id"
+      class="app-row"
+      data-id="{{item.id}}"
+      bindtap="openDetail"
+    >
+      <view>
+        <view class="row-title">{{item.title}}</view>
+        <view class="row-meta">{{item.category}} · {{item.updatedAt}}</view>
+      </view>
+      <view class="row-side">
+        <view class="amount">{{item.amountText}}</view>
+        <view class="status">{{item.statusLabel}}</view>
+      </view>
+    </view>
+  </view>
+</view>

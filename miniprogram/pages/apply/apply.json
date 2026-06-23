@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "新建申请",
+  "usingComponents": {
+    "back-button": "/components/back-button/index"
+  }
+}

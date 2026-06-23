@@ -1,0 +1,45 @@
+<view class="page detail-page {{themeClass}}">
+  <back-button />
+  <view class="top-bar">
+    <text>共同花详情</text>
+    <text class="mini-chip">审批信笺</text>
+  </view>
+
+  <view wx:if="{{viewModel && viewModel.exists}}" class="detail-wrap">
+    <view class="detail-top soft-panel">
+      <image class="detail-icon" src="/assets/icons/common-flower-pot-small.png" mode="aspectFit" />
+      <view class="status-chip">{{viewModel.application.statusLabel}}</view>
+      <view class="detail-title">{{viewModel.application.title}}</view>
+      <view class="detail-amount">{{viewModel.application.amountText}}</view>
+      <view class="detail-meta">{{viewModel.application.category || '未分类'}} · {{viewModel.application.createdAt}}</view>
+    </view>
+
+    <view class="detail-section soft-panel">
+      <view class="label">必要性说明</view>
+      <view class="body-text">{{viewModel.application.reason}}</view>
+    </view>
+
+    <view class="detail-section soft-panel" wx:if="{{viewModel.application.hasImages}}">
+      <view class="label">产品照片</view>
+      <view class="image-row">
+        <image wx:for="{{viewModel.application.images}}" wx:key="*this" class="thumb" src="{{item}}" mode="aspectFill" />
+      </view>
+    </view>
+
+    <view class="detail-section soft-panel" wx:if="{{viewModel.application.hasProductLink}}">
+      <view class="label">产品链接</view>
+      <view class="link-text">{{viewModel.application.productLink}}</view>
+    </view>
+
+    <view class="detail-section soft-panel">
+      <view class="label">审批意见</view>
+      <textarea value="{{approvalComment}}" bindinput="onCommentInput" placeholder="写一句给对方的话" />
+      <view wx:if="{{viewModel.application.approvalComment}}" class="body-text saved-comment">{{viewModel.application.approvalComment}}</view>
+    </view>
+
+    <view wx:if="{{viewModel.canApprove}}" class="decision-row">
+      <button class="reject-button" bindtap="reject">驳回</button>
+      <button class="approve-button" bindtap="approve">通过</button>
+    </view>
+  </view>
+</view>

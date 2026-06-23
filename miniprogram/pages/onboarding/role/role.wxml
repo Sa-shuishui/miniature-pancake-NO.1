@@ -1,0 +1,29 @@
+<view class="page role-page {{state.themeClass}}">
+  <back-button />
+  <image class="role-header" src="{{state.headerImage}}" mode="aspectFill" />
+
+  <view class="role-heading">
+    <view class="section-title">选择你的角色</view>
+    <view class="section-subtitle">你可以作为申请者发起共同花，也可以作为审批者回应对方</view>
+  </view>
+
+  <view class="role-list">
+    <view
+      wx:for="{{state.options}}"
+      wx:key="value"
+      class="role-card {{item.active ? 'active' : ''}}"
+      data-role="{{item.value}}"
+      bindtap="selectRole"
+    >
+      <image class="role-card-image" src="{{item.cardImage}}" mode="aspectFill" />
+      <image
+        class="select-badge"
+        src="{{item.active ? '/assets/icons/select-active.png' : '/assets/icons/select-inactive.png'}}"
+        mode="aspectFit"
+      />
+    </view>
+  </view>
+
+  <view class="role-tip">角色可随时在“我的”页面更改</view>
+  <button class="primary-button" disabled="{{!state.canContinue}}" bindtap="finish">进入共同花</button>
+</view>

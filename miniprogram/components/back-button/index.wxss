@@ -1,0 +1,25 @@
+.back-button-wrap {
+  display: inline-flex;
+  align-items: center;
+  height: 56rpx;
+  padding: 0 20rpx 0 14rpx;
+  margin-bottom: 16rpx;
+  border: 2rpx solid rgba(229, 193, 174, 0.72);
+  border-radius: 999rpx;
+  color: #6f5249;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 8rpx 20rpx rgba(125, 87, 74, 0.08);
+  font-size: 27rpx;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.back-arrow {
+  margin-right: 4rpx;
+  font-size: 38rpx;
+  line-height: 1;
+}
+
+.back-text {
+  line-height: 1;
+}

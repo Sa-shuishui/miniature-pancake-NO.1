@@ -1,0 +1,30 @@
+<view class="page profile-page {{themeClass}}">
+  <back-button />
+  <view class="top-bar">
+    <text>我的共同花</text>
+    <text class="mini-chip">个人主题</text>
+  </view>
+
+  <view wx:if="{{profile}}" class="profile-card soft-panel">
+    <image class="profile-avatar" src="{{profile.sceneImage}}" mode="aspectFit" />
+    <view class="profile-name">{{profile.currentUser.name}}</view>
+    <view class="profile-meta">{{profile.genderLabel}}主题 · {{profile.roleLabel}}</view>
+  </view>
+
+  <view class="profile-list soft-panel" wx:if="{{profile}}">
+    <view class="profile-row">
+      <text>小程序名称</text>
+      <text>共同花</text>
+    </view>
+    <view class="profile-row">
+      <text>家庭 ID</text>
+      <text>{{profile.familyId}}</text>
+    </view>
+    <view class="profile-row">
+      <text>当前角色</text>
+      <text>{{profile.roleLabel}}</text>
+    </view>
+  </view>
+
+  <image class="profile-icon" src="/assets/icons/common-flower-pot.png" mode="aspectFit" />
+</view>

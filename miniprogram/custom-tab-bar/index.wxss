@@ -1,0 +1,40 @@
+.custom-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  height: 112rpx;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 2rpx solid rgba(229, 193, 174, 0.55);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 -10rpx 28rpx rgba(125, 87, 74, 0.08);
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6f757d;
+  font-size: 31rpx;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tab-item.active {
+  color: var(--tab-active, #1f8f5f);
+  font-size: 33rpx;
+  font-weight: 900;
+}
+
+.theme-male {
+  --tab-active: #337db6;
+}
+
+.theme-female {
+  --tab-active: #cf526a;
+}
