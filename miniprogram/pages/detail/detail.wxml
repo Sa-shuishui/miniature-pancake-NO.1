@@ -26,6 +26,14 @@
       </view>
     </view>
 
+    <view wx:if="{{viewModel.canApprove}}" class="detail-section decision-section soft-panel">
+      <view class="label">审批操作</view>
+      <view class="decision-row">
+        <button class="reject-button" bindtap="reject">驳回</button>
+        <button class="approve-button" bindtap="approve">通过</button>
+      </view>
+    </view>
+
     <view class="detail-section soft-panel" wx:if="{{viewModel.application.hasProductLink}}">
       <view class="label">产品链接</view>
       <view class="link-text">{{viewModel.application.productLink}}</view>
@@ -37,9 +45,5 @@
       <view wx:if="{{viewModel.application.approvalComment}}" class="body-text saved-comment">{{viewModel.application.approvalComment}}</view>
     </view>
 
-    <view wx:if="{{viewModel.canApprove}}" class="decision-row">
-      <button class="reject-button" bindtap="reject">驳回</button>
-      <button class="approve-button" bindtap="approve">通过</button>
-    </view>
   </view>
 </view>

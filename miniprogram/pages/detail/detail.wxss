@@ -109,38 +109,32 @@ textarea {
   border-radius: 28rpx;
 }
 
+.decision-section {
+  padding: 28rpx 26rpx 30rpx;
+}
+
 .decision-row {
-  position: fixed;
-  left: 36rpx;
-  right: 36rpx;
-  bottom: calc(24rpx + env(safe-area-inset-bottom));
-  z-index: 20;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18rpx;
+  gap: 28rpx;
   box-sizing: border-box;
-  padding: 14rpx;
-  border: 2rpx solid rgba(255, 210, 220, 0.72);
-  border-radius: 38rpx;
-  background: rgba(255, 253, 248, 0.96);
-  box-shadow: 0 14rpx 36rpx rgba(125, 87, 74, 0.12);
-  backdrop-filter: blur(12rpx);
+  margin-top: 24rpx;
 }
 
 .reject-button,
 .approve-button {
-  height: 76rpx;
-  border-radius: 28rpx;
-  font-size: 29rpx;
+  height: 86rpx;
+  border-radius: 22rpx;
+  font-size: 32rpx;
   font-weight: 900;
-  line-height: 76rpx;
+  line-height: 86rpx;
   letter-spacing: 0;
 }
 
 .reject-button {
-  border: 3rpx solid var(--theme-line);
+  border: 3rpx solid var(--theme-strong);
   color: var(--theme-deep);
-  background: var(--theme-tint);
+  background: rgba(255, 255, 255, 0.86);
   box-shadow: none;
 }
 
@@ -148,12 +142,4 @@ textarea {
   color: #ffffff;
   background: linear-gradient(180deg, var(--theme-strong) 0%, var(--theme-deep) 100%);
   box-shadow: 0 12rpx 24rpx var(--theme-shadow);
-}
-
-.theme-male .decision-row {
-  border-color: rgba(139, 194, 232, 0.72);
-}
-
-.theme-female .decision-row {
-  border-color: rgba(246, 174, 190, 0.72);
 }
