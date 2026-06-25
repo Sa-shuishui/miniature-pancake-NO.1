@@ -5,7 +5,10 @@ function canApprove(application, currentUser) {
   if (!application || application.status !== APPLICATION_STATUS.PENDING) return false
   if (!currentUser || !currentUser.id) return true
 
-  return application.approverId === currentUser.id
+  if (currentUser.role === 'applicant') return false
+  if (application.approverId) return application.approverId === currentUser.id
+
+  return currentUser.role === 'approver'
 }
 
 function buildDetailViewModel(application, currentUser) {

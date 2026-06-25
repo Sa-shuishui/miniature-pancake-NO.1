@@ -73,11 +73,39 @@ const detailView = buildDetailViewModel(
     productLink: 'https://example.com/coffee-machine',
     events: []
   },
-  { id: 'user_wife', name: '审批方' }
+  { id: 'user_wife', name: '审批方', role: 'approver' }
 )
 assert.strictEqual(detailView.exists, true)
 assert.strictEqual(detailView.canApprove, true)
 assert.strictEqual(detailView.application.hasImages, true)
 assert.strictEqual(detailView.application.hasProductLink, true)
+
+const cloudDetailView = buildDetailViewModel(
+  {
+    id: 'cloud_app_001',
+    title: '购买PS5',
+    amount: 4398,
+    status: APPLICATION_STATUS.PENDING,
+    approverOpenId: '',
+    images: [],
+    productLink: '复制淘宝口令',
+    events: []
+  },
+  { id: 'user_wife', name: '审批方', role: 'approver' }
+)
+assert.strictEqual(cloudDetailView.canApprove, true)
+
+const applicantDetailView = buildDetailViewModel(
+  {
+    id: 'cloud_app_002',
+    title: '购买PS5',
+    amount: 4398,
+    status: APPLICATION_STATUS.PENDING,
+    images: [],
+    events: []
+  },
+  { id: 'user_husband', name: '申请方', role: 'applicant' }
+)
+assert.strictEqual(applicantDetailView.canApprove, false)
 
 console.log('view-models verification passed')
