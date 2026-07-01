@@ -7,7 +7,7 @@
 
   <view wx:if="{{viewModel && viewModel.exists}}" class="detail-wrap">
     <view class="detail-top soft-panel">
-      <image class="detail-icon" src="/assets/icons/common-flower-pot-small.png" mode="aspectFit" />
+      <image class="{{detailHeroClass}}" src="{{detailHeroImage}}" mode="aspectFit" />
       <view class="status-chip">{{viewModel.application.statusLabel}}</view>
       <view class="detail-title">{{viewModel.application.title}}</view>
       <view class="detail-amount">{{viewModel.application.amountText}}</view>

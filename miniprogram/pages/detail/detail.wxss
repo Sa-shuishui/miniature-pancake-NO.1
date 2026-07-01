@@ -21,6 +21,13 @@
   margin: 0 auto 14rpx;
 }
 
+.detail-hero-image {
+  width: 330rpx;
+  height: 440rpx;
+  margin-bottom: 18rpx;
+  border-radius: 30rpx;
+}
+
 .status-chip {
   display: inline-flex;
   height: 52rpx;

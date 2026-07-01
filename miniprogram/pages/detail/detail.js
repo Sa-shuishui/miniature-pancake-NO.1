@@ -5,12 +5,27 @@ const {
   approveDetailApplication
 } = require('../../page-models/detail-page-model')
 
+const DETAIL_HERO_IMAGES = {
+  male: '/assets/illustrations/detail-male-approver-hero.png',
+  default: '/assets/icons/common-flower-pot-small.png'
+}
+
+function getDetailHero(themeClass) {
+  const isMaleTheme = themeClass === 'theme-male'
+  return {
+    image: isMaleTheme ? DETAIL_HERO_IMAGES.male : DETAIL_HERO_IMAGES.default,
+    className: isMaleTheme ? 'detail-icon detail-hero-image' : 'detail-icon'
+  }
+}
+
 Page({
   data: {
     applicationId: '',
     loading: false,
     errorMessage: '',
     themeClass: 'theme-female',
+    detailHeroImage: DETAIL_HERO_IMAGES.default,
+    detailHeroClass: 'detail-icon',
     approvalComment: '',
     viewModel: null
   },
@@ -22,10 +37,15 @@ Page({
 
   async loadData() {
     const app = getApp()
+    const themeClass = app.globalData.themeClass || getThemeClass(app.globalData.gender)
+    const detailHero = getDetailHero(themeClass)
+
     this.setData({
       loading: true,
       errorMessage: '',
-      themeClass: app.globalData.themeClass || getThemeClass(app.globalData.gender)
+      themeClass,
+      detailHeroImage: detailHero.image,
+      detailHeroClass: detailHero.className
     })
 
     const result = await loadDetailState(this.data.applicationId, app.globalData.currentUser)
