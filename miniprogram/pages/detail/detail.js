@@ -7,14 +7,23 @@ const {
 
 const DETAIL_HERO_IMAGES = {
   male: '/assets/illustrations/detail-male-approver-hero.png',
+  female: '/assets/illustrations/detail-female-approver-hero.png',
   default: '/assets/icons/common-flower-pot-small.png'
 }
 
 function getDetailHero(themeClass) {
   const isMaleTheme = themeClass === 'theme-male'
+  const isFemaleTheme = themeClass === 'theme-female'
+  const useHeroImage = isMaleTheme || isFemaleTheme
+  const image = isMaleTheme
+    ? DETAIL_HERO_IMAGES.male
+    : isFemaleTheme
+      ? DETAIL_HERO_IMAGES.female
+      : DETAIL_HERO_IMAGES.default
+
   return {
-    image: isMaleTheme ? DETAIL_HERO_IMAGES.male : DETAIL_HERO_IMAGES.default,
-    className: isMaleTheme ? 'detail-icon detail-hero-image' : 'detail-icon'
+    image,
+    className: useHeroImage ? 'detail-icon detail-hero-image' : 'detail-icon'
   }
 }
 
